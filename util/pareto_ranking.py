@@ -40,11 +40,12 @@ def finding_nondominated(objs, minimize=True, verbose=False):
 
 def pareto_ranking(objs, minimize=True, verbose=False):
     ranks = [0 for i in range(len(objs))]
+    baselen = len(objs)
     curr_rank = 0
-    remain = len(objs)
+    remain = baselen
     while remain > 0:
         if verbose:
-            print('\rRemains: {0}/{1}'.format(remain-1, len(objs)), end='')
+            print('\rRemaining: {0}/{1}        '.format(remain-1, baselen), end='')
             sys.stdout.flush()
         curr_rank += 1
         for i in range(len(objs)):
@@ -85,10 +86,6 @@ def is_dominated2(objs, obj, minimize=True, getall=False): # pop stores the objs
     if len(dominating_sols):
         return True, dominating_sols
     return False, dominating_sols
-
-
-
-
 
 
 # This is a full version of determining domination status for obj1 and obj2.

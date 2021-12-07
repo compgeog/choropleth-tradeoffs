@@ -9,8 +9,6 @@ Columbus, OH
 
 __author__ = "Ningchuan Xiao <ncxiao@gmail.com>"
 
-import numpy as np
-
 # envelope is organized as [xmin, ymin, xmax, ymax]
 XMIN = 0
 YMIN = 1
@@ -110,7 +108,9 @@ def adjacency_matrix(shp, output="L", num_shared_points=1):
     n = len(shp)
 
     if output=="M":
-        adj = np.array([[0]*n for x in range(n)])
+        # adj = np.array([[0]*n for x in range(n)])
+        print('This version does not support returning a numpy array')
+        return NotImplemented
     elif output=="L":
         adj = []
     else:
