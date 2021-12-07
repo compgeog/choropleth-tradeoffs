@@ -1,5 +1,5 @@
 import random
-from .breakpoints import *
+from .breakpoints2 import *
 from .classify import *
 
 def gvf(classes, data, numclass): # goodness of variance fit

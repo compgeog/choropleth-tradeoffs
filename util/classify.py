@@ -1,4 +1,4 @@
-from .breakpoints import *
+from .breakpoints2 import *
 from bisect import bisect_right
 
 class _interval:
@@ -20,7 +20,7 @@ class _interval_data(_interval):
     def __repr__(self):
         return "{0} - {1}".format(self.min, self.max)
 
-class intervals:
+class Intervals:
     def __init__(self, is_integer = True):
         """
         data must be sorted

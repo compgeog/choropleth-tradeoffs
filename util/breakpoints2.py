@@ -12,20 +12,18 @@ from random import sample
 
 # a nice solution from:
 # http://stackoverflow.com/questions/127704/algorithm-to-return-all-combinations-of-k-elements-from-n
+
 def choose_iter(elements, length):
-    for i in xrange(len(elements)):
+    for i in range(len(elements)):
         if length == 1:
             yield (elements[i],)
         else:
             for next in choose_iter(elements[i+1:len(elements)], length-1):
                 yield (elements[i],) + next
-                
+
+# get a list of all unique non-repeating combinations
 def choose(l, k):
-    return list(choose_iter(l, k))
-
-# x = choose(range(66), 3)
-
-
+    return list(choose_iter(l, k)) 
 
 class intError(Exception):
     """Base class for exceptions in this module."""
@@ -45,8 +43,9 @@ class _breakpoint:
     def __repr__(self):
         return "{0},{1},{2}".format(self.pos, self.min, self.max)
 
-class breakpoints:
-    """This class iterates the combinations of k breakpoints amount n possible
+class Breakpoints:
+    """
+    This class iterates the combinations of k breakpoints amount n possible
     breakpoints. The calling program needs to make sure that the number of possible
     breakpoints (n) are correct. For example, if the data has M unique values, the
     total number of possible breakpoints will M-1, i.e. n = M-1.
@@ -85,8 +84,8 @@ class breakpoints:
     2 breakpoints in 5 possible breakpoints.
 
     >>> from breakpoints import *
-    >>> help(breakpoints)
-    >>> myint = breakpoints(2, 5)
+    >>> help(Breakpoints)
+    >>> myint = Breakpoints(2, 5)
     >>> print myint.true_total
     10
     >>> while myint.next() is not None:
@@ -148,7 +147,6 @@ class breakpoints:
         self.true_total = a/b
         self.iter = choose(range(n), k)
 
-
     def reset(self):
         """Set all break points to their minimum position"""
         for i in range(self.k):
@@ -191,23 +189,23 @@ class breakpoints:
         return ",".join([str(c.pos) for c in self.current])
     
 def test():
-    myint = breakpoints(2, 5)
-    print myint.true_total
+    myint = Breakpoints(2, 5)
+    print(myint.true_total)
     while myint.next() is not None:
-        print myint
+        print(myint)
 
     import random
     data = [random.randint(0, 100) for i in range(7)]
     newdata = list(set(data))
-    myint = breakpoints(3, len(newdata)-1)
-    print "Data:", newdata
+    myint = Breakpoints(3, len(newdata)-1)
+    print("Data:", newdata)
     while myint.next() is not None:
         intvs = [-1] + [c.pos for c in myint.current] + [myint.n]
-        print myint, 
+        print(myint, end='') 
         for i in range(len(intvs)-1):
             slice = newdata[intvs[i]+1:intvs[i+1]+1]
-            print slice,
-        print
+            print(slice, end='')
+        print()
 
 if __name__ == "__main__":
     test()
