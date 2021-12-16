@@ -13,11 +13,11 @@ It is still difficult to show the maps for the 10,004 classifications (assuming 
 
 The following notebook details how these plots and maps are made:
 
-- [explore_choropleth_computation.ipynb](https://github.com/compgeog/choropleth-tradeoffs/blob/main/explore_choropleth_computation.ipynb)
+- [explore_choropleth_results.ipynb](https://github.com/compgeog/choropleth-tradeoffs/blob/main/explore_choropleth_results.ipynb)
 
 The detailed explanation of how to compute the 3 million and more classifications is presented in the following notebook:
 
-- [explore_choropleth_results.ipynb](https://github.com/compgeog/choropleth-tradeoffs/blob/main/explore_choropleth_results.ipynb)
+- [explore_choropleth_computation.ipynb](https://github.com/compgeog/choropleth-tradeoffs/blob/main/explore_choropleth_computation.ipynb)
 
 Clicking on the notebooks will preview the content. There are at least two approaches to actually run the notebooks. They can be downloaded to a local computer and run from a Jupyter server there. You can also click on the <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/> button at the top of each notebook to open it Google Colab and run from there (this requires a Google account to run). Please note you may not be able to finish running the first notebook (computation) if you use a free colab plan because it the intensive computation using parallel computing may require resources that exceed what is allocated. 
 
